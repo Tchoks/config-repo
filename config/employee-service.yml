@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: employee-service
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url: http://localhost:8061/eureka/
