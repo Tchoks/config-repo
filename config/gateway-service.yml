@@ -25,12 +25,12 @@ spring:
             - Path=/organization/**
           filters:
             - RewritePath=/organization/(?<path>.*), /$\{path}
-        - id: openapi
-          uri: http://localhost:${server.port}
-          predicates:
-            - Path=/v2/api-docs/**
-          filters:
-            - RewritePath=/v2/api-docs/(?<path>.*), /$\{path}/v3/api-docs/
+#        - id: openapi
+#          uri: http://localhost:${server.port}
+#          predicates:
+#            - Path=/v2/api-docs/**
+#          filters:
+#            - RewritePath=/v2/api-docs/(?<path>.*), /$\{path}/v3/api-docs/
 
 server:
   port: 8060
