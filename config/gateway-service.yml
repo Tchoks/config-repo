@@ -1,6 +1,6 @@
 spring:
   application:
-    name: department-service
+    name: gateway-service
   cloud:
     gateway:
       discovery:
