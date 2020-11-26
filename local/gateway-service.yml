@@ -13,6 +13,7 @@ spring:
             - Path=/api/employees/**
           filters:
             - RewritePath=/api(?<path>/?.*), $\{path}
+            - StripPrefix=1
         - id: department-service
           uri: lb://department-service
           predicates:
