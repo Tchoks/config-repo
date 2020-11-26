@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/employee/**
+          filters:
+            - RewritePath=/employee/(?<path>.*), /$\{path}
+        - id: department-service
+          uri: lb://department-service
+          predicates:
+            - Path=/department/**
+          filters:
+            - RewritePath=/department/(?<path>.*), /$\{path}
+        - id: organization-service
+          uri: lb://organization-service
+          predicates:
+            - Path=/organization/**
+          filters:
+            - RewritePath=/organization/(?<path>.*), /$\{path}
+#        - id: openapi
+#          uri: http://localhost:${server.port}
+#          predicates:
+#            - Path=/v2/api-docs/**
+#          filters:
+#            - RewritePath=/v2/api-docs/(?<path>.*), /$\{path}/v3/api-docs/
+
+server:
+  port: 8060
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8061/eureka
