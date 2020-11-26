@@ -12,19 +12,19 @@ spring:
           predicates:
             - Path=/api/employees/**
           filters:
-            - RewritePath=/api/(?<path>/?.*), $\{path}
+            - RewritePath=/api(?<path>/?.*), $\{path}
         - id: department-service
           uri: lb://department-service
           predicates:
             - Path=/api/departments/**
           filters:
-            - RewritePath=/api/(?<path>/?.*), $\{path}
+            - RewritePath=/api(?<path>/?.*), $\{path}
         - id: organization-service
           uri: lb://organization-service
           predicates:
             - Path=/api/organizations/**
           filters:
-            - RewritePath=/api/(?<path>/?.*), $\{path}
+            - RewritePath=/api(?<path>/?.*), $\{path}
 #        - id: openapi
 #          uri: http://localhost:${server.port}
 #          predicates:
